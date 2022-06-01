@@ -1,3 +1,3 @@
-# Photo to Anime
+# Selfie to Anime
 
 Flutter application
