@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'dart:ui';
 import 'package:image_picker/image_picker.dart';
 import 'package:flutter/material.dart';
 
@@ -6,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:selfie2anime/bottombar.dart';
 import 'package:selfie2anime/gradientcolor.dart';
 import 'package:selfie2anime/iconbutton.dart';
+import 'package:selfie2anime/mybotton.dart';
 
 /// ResultsPage displays the captured/uploaded image for confirmation
 class ResultsPage extends StatelessWidget {
@@ -24,9 +26,6 @@ class ResultsPage extends StatelessWidget {
     Icons.camera,
     color: Colors.white,
   );
-  
-  // display result image
-
 
   // constructor
   const ResultsPage({Key? key, this.image, this.barColor}) : super(key: key);
@@ -34,7 +33,6 @@ class ResultsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
       // Pass barColor, rowChildren, stackChildren
       body: BottomBar(
 
@@ -60,10 +58,27 @@ class ResultsPage extends StatelessWidget {
         ],
 
         children: [
-            // captured/uploaded image
-            Image.file(File(image!.path), fit: BoxFit.fill),
+          // display image
+           Container(
+              width: double.infinity,
+              margin: const EdgeInsets.fromLTRB(50, 50, 50, 250),
+              child: Image.file(File(image!.path), fit: BoxFit.cover,)
+            ),
 
             // confirm button
+            Stack(children: [
+              Align(
+                alignment: Alignment.bottomCenter,
+                child: Container(
+                   margin: const EdgeInsets.fromLTRB(20, 20, 20, 230),
+                  child: MyElevatedButton(
+                    width: double.infinity,
+                    onPressed: () => {},
+                    borderRadius: BorderRadius.circular(30),
+                    child: const Text('Anime Meme!!'),
+                  )
+              ))
+            ])
         ],
       ),
     );

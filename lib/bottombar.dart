@@ -13,22 +13,29 @@ class BottomBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        // stack children
-        ...children!,
+    return Container(
+      decoration: const BoxDecoration(
+        image: DecorationImage(
+            image: AssetImage("assets/splash_background.png"),
+            fit: BoxFit.cover),
+      ),
+      child: Stack(
+        children: [
+          // stack children
+          ...children!,
 
-        // row children
-        Align(
-            alignment: Alignment.bottomCenter,
-            child: Container(
-                color: barColor,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  mainAxisSize: MainAxisSize.max,
-                  children: [...rowChildren!],
-                )))
-      ],
+          // row children
+          Align(
+              alignment: Alignment.bottomCenter,
+              child: Container(
+                  color: barColor,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    mainAxisSize: MainAxisSize.max,
+                    children: [...rowChildren!],
+                  )))
+        ],
+      )
     );
   }
 }
