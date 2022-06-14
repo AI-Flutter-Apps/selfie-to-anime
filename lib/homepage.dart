@@ -17,7 +17,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
-
   // Camera related attributes
   CameraController? _controller;
   List<CameraDescription>? _availableCameras;
@@ -56,20 +55,25 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
     _getAvailableCameras();
     WidgetsBinding.instance.addObserver(this);
   }
+
   @override
   void dispose() {
     WidgetsBinding.instance.addObserver(this);
     _controller?.dispose();
     super.dispose();
   }
+
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) {
     if (state == AppLifecycleState.resumed) {
       _initController = _controller?.initialize();
     }
     if (!mounted) return;
-    setState(() {isCameraReady = true;});
+    setState(() {
+      isCameraReady = true;
+    });
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -96,7 +100,9 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
                   ],
                   children: [camerWidget(context)],
                 );
-              } else {return const Center(child: CircularProgressIndicator());}
+              } else {
+                return const Center(child: CircularProgressIndicator());
+              }
             }));
   }
 
@@ -114,10 +120,14 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
       if (mounted) {
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => ConfirmPage(image: image, barColor: barColor)),
+          MaterialPageRoute(
+              builder: (context) =>
+                  ConfirmPage(image: image, barColor: barColor)),
         );
       }
-    } on PlatformException catch (e) {print(e);}
+    } on PlatformException catch (e) {
+      print(e);
+    }
   }
 
   // get available cameras
@@ -131,7 +141,9 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
     _controller = CameraController(description, ResolutionPreset.high);
     _initController = _controller?.initialize();
     if (!mounted) return;
-    setState(() {isCameraReady = true;});
+    setState(() {
+      isCameraReady = true;
+    });
   }
 
   // set up camera view
@@ -162,15 +174,17 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
   // capture image
   captureImage(BuildContext context) {
     _controller!.takePicture().then((file) {
-      setState(() {imageFile = file;});
+      setState(() {
+        imageFile = file;
+      });
       if (mounted) {
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => ConfirmPage(image: imageFile,barColor: barColor)),
+          MaterialPageRoute(
+              builder: (context) =>
+                  ConfirmPage(image: imageFile, barColor: barColor)),
         );
       }
     });
   }
-
-
 }

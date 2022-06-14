@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 /// LinearGradientMask adds a linear gradient color to widget based on app theme
 class LinearGradientMask extends StatelessWidget {
-    
   final Widget? child;
 
   // app theme

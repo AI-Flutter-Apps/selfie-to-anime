@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 /// MyIconButton is a custom icon button widget
 class MyIconButton extends StatelessWidget {
-    
   // field related to icon (size and the actual icon)
   final double? iconSize;
   final Icon? icon;

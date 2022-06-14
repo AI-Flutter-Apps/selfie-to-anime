@@ -7,11 +7,10 @@ import 'package:flutter/material.dart';
 import 'package:selfie2anime/bottombar.dart';
 import 'package:selfie2anime/gradientcolor.dart';
 import 'package:selfie2anime/iconbutton.dart';
-import 'package:selfie2anime/mybotton.dart';
+import 'package:selfie2anime/mybutton.dart';
 
 class ResultPage extends StatefulWidget {
-
-   // captured/uploaded image and bar color
+  // captured/uploaded image and bar color
   final XFile? image;
   final Color? barColor;
 
@@ -24,7 +23,6 @@ class ResultPage extends StatefulWidget {
 
 /// ResultPage displays the captured/uploaded image for Resultation
 class _ResultPage extends State<ResultPage> {
-
   // capture icon
   final Icon outercircle = const Icon(
     Icons.circle,
@@ -41,14 +39,12 @@ class _ResultPage extends State<ResultPage> {
     return Scaffold(
       // Pass barColor, rowChildren, stackChildren
       body: BottomBar(
-
         // bottom bar color
         barColor: widget.barColor,
 
         // widgets inside the bar
         rowChildren: [
           Stack(children: [
-
             // move icons up to hang from the bar
             Transform.translate(
               offset: const Offset(0, -40),
@@ -65,13 +61,9 @@ class _ResultPage extends State<ResultPage> {
         ],
         children: [
           // display image
-           Transform.scale(
+          Transform.scale(
               scale: 0.7,
-              child: Center(
-                
-                child:Image.file(File(widget.image!.path))
-              )
-            ),
+              child: Center(child: Image.file(File(widget.image!.path)))),
         ],
       ),
     );

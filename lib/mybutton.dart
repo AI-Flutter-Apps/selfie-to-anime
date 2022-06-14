@@ -11,11 +11,11 @@ class MyElevatedButton extends StatelessWidget {
   final Widget child;
 
   // app theme
-  static const Color color1 =  Color.fromARGB(255, 122, 231, 238);
-  static const Color color2 =  Color.fromARGB(255, 210, 114, 178);
+  static const Color color1 = Color.fromARGB(255, 122, 231, 238);
+  static const Color color2 = Color.fromARGB(255, 210, 114, 178);
 
-  static const Color color1opac =  Color.fromARGB(120, 122, 231, 238);
-  static const Color color2opac =  Color.fromARGB(120, 210, 114, 178);
+  static const Color color1opac = Color.fromARGB(120, 122, 231, 238);
+  static const Color color2opac = Color.fromARGB(120, 210, 114, 178);
 
   const MyElevatedButton({
     Key? key,
@@ -36,7 +36,7 @@ class MyElevatedButton extends StatelessWidget {
       width: width,
       height: height,
       decoration: BoxDecoration(
-        gradient: opac? gradientopec:gradient,
+        gradient: opac ? gradientopec : gradient,
         borderRadius: borderRadius,
       ),
       child: ElevatedButton(
