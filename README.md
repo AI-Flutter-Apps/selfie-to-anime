@@ -10,5 +10,5 @@ This application allows you to capture a picture of yourself or upload an existi
 
 ## Results
 
-## User Interface
+## UI
 ![ui-sample](https://user-images.githubusercontent.com/57009004/173684809-1476eb50-9930-4c58-8163-d6cbf6eda143.png)
