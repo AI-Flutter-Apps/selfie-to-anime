@@ -9,12 +9,21 @@ import 'package:selfie2anime/gradientcolor.dart';
 import 'package:selfie2anime/iconbutton.dart';
 import 'package:selfie2anime/mybotton.dart';
 
-/// ResultsPage displays the captured/uploaded image for confirmation
-class ResultsPage extends StatelessWidget {
+class ResultPage extends StatefulWidget {
 
-  // captured/uploaded image and bar color
+   // captured/uploaded image and bar color
   final XFile? image;
   final Color? barColor;
+
+  // constructor
+  const ResultPage({Key? key, this.image, this.barColor}) : super(key: key);
+
+  @override
+  State<ResultPage> createState() => _ResultPage();
+}
+
+/// ResultPage displays the captured/uploaded image for Resultation
+class _ResultPage extends State<ResultPage> {
 
   // capture icon
   final Icon outercircle = const Icon(
@@ -27,9 +36,6 @@ class ResultsPage extends StatelessWidget {
     color: Colors.white,
   );
 
-  // constructor
-  const ResultsPage({Key? key, this.image, this.barColor}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,7 +43,7 @@ class ResultsPage extends StatelessWidget {
       body: BottomBar(
 
         // bottom bar color
-        barColor: barColor,
+        barColor: widget.barColor,
 
         // widgets inside the bar
         rowChildren: [
@@ -57,29 +63,15 @@ class ResultsPage extends StatelessWidget {
                 )),
           ])
         ],
-
         children: [
           // display image
-           Container(
-              width: double.infinity,
-              margin: const EdgeInsets.fromLTRB(50, 50, 50, 250),
-              child: Image.file(File(image!.path), fit: BoxFit.cover,)
+           Transform.scale(
+              scale: 0.7,
+              child: Center(
+                
+                child:Image.file(File(widget.image!.path))
+              )
             ),
-
-            // confirm button
-            Stack(children: [
-              Align(
-                alignment: Alignment.bottomCenter,
-                child: Container(
-                   margin: const EdgeInsets.fromLTRB(20, 20, 20, 200),
-                  child: MyElevatedButton(
-                    width: double.infinity,
-                    onPressed: () => {},
-                    borderRadius: BorderRadius.circular(30),
-                    child: const Text('Anime Meme!!'),
-                  )
-              ))
-            ])
         ],
       ),
     );

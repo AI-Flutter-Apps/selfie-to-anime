@@ -4,13 +4,18 @@ class MyElevatedButton extends StatelessWidget {
   final BorderRadiusGeometry? borderRadius;
   final double? width;
   final double height;
+  final bool opac;
   final Gradient gradient;
+  final Gradient gradientopec;
   final VoidCallback? onPressed;
   final Widget child;
 
   // app theme
   static const Color color1 =  Color.fromARGB(255, 122, 231, 238);
   static const Color color2 =  Color.fromARGB(255, 210, 114, 178);
+
+  static const Color color1opac =  Color.fromARGB(120, 122, 231, 238);
+  static const Color color2opac =  Color.fromARGB(120, 210, 114, 178);
 
   const MyElevatedButton({
     Key? key,
@@ -19,7 +24,9 @@ class MyElevatedButton extends StatelessWidget {
     this.borderRadius,
     this.width,
     this.height = 44.0,
+    this.opac = false,
     this.gradient = const LinearGradient(colors: [color1, color2]),
+    this.gradientopec = const LinearGradient(colors: [color1opac, color2opac]),
   }) : super(key: key);
 
   @override
@@ -29,7 +36,7 @@ class MyElevatedButton extends StatelessWidget {
       width: width,
       height: height,
       decoration: BoxDecoration(
-        gradient: gradient,
+        gradient: opac? gradientopec:gradient,
         borderRadius: borderRadius,
       ),
       child: ElevatedButton(

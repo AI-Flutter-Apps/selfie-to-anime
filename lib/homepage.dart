@@ -7,7 +7,7 @@ import 'package:image_picker/image_picker.dart';
 // custom components
 import 'package:selfie2anime/bottombar.dart';
 import 'package:selfie2anime/iconbutton.dart';
-import 'package:selfie2anime/resultPage.dart';
+import 'package:selfie2anime/confirmpage.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -114,7 +114,7 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
       if (mounted) {
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => ResultsPage(image: image, barColor: barColor)),
+          MaterialPageRoute(builder: (context) => ConfirmPage(image: image, barColor: barColor)),
         );
       }
     } on PlatformException catch (e) {print(e);}
@@ -166,7 +166,7 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
       if (mounted) {
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => ResultsPage(image: imageFile,barColor: barColor)),
+          MaterialPageRoute(builder: (context) => ConfirmPage(image: imageFile,barColor: barColor)),
         );
       }
     });
