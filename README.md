@@ -11,5 +11,4 @@ This application allows you to capture a picture of yourself or upload an existi
 ## AI Results
 
 ## User Interface
-
-<img src="https://user-images.githubusercontent.com/57009004/172021350-5122938d-13aa-47c8-af79-e49ef86f0b06.png" width="200"/>  
+![ui-sample](https://user-images.githubusercontent.com/57009004/173684809-1476eb50-9930-4c58-8163-d6cbf6eda143.png)
