@@ -53,6 +53,7 @@ class ResultsPage extends StatelessWidget {
                 child: MyIconButton(
                   iconSize: 40,
                   icon: innercircle,
+                  action: () => Navigator.pop(context),
                 )),
           ])
         ],
@@ -70,7 +71,7 @@ class ResultsPage extends StatelessWidget {
               Align(
                 alignment: Alignment.bottomCenter,
                 child: Container(
-                   margin: const EdgeInsets.fromLTRB(20, 20, 20, 230),
+                   margin: const EdgeInsets.fromLTRB(20, 20, 20, 200),
                   child: MyElevatedButton(
                     width: double.infinity,
                     onPressed: () => {},

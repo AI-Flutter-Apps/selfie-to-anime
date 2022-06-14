@@ -84,7 +84,7 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
                     MyIconButton(
                         iconSize: 30,
                         icon: photoUpload,
-                        action: () => pickImage(ImageSource.gallery)),
+                        action: () => pickImage(ImageSource.gallery, context)),
                     MyIconButton(
                         iconSize: 70,
                         icon: photoCapture,
@@ -99,9 +99,9 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
               } else {return const Center(child: CircularProgressIndicator());}
             }));
   }
-  
+
   // pick an image from a source
-  Future pickImage(ImageSource source) async {
+  Future pickImage(ImageSource source, BuildContext context) async {
     try {
       final image = await ImagePicker().pickImage(source: source);
 
@@ -111,6 +111,12 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
       // else store image
       final imageTemp = File(image.path);
       setState(() => this.image = imageTemp);
+      if (mounted) {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => ResultsPage(image: image, barColor: barColor)),
+        );
+      }
     } on PlatformException catch (e) {print(e);}
   }
 
