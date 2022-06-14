@@ -60,10 +60,12 @@ class _ResultPage extends State<ResultPage> {
           ])
         ],
         children: [
-          // display image
-          Transform.scale(
-              scale: 0.7,
-              child: Center(child: Image.file(File(widget.image!.path)))),
+          Container(
+            alignment: Alignment.center, // This is needed
+            child: Image.file(
+              File(widget.image!.path),
+              fit: BoxFit.cover,
+            ))
         ],
       ),
     );
