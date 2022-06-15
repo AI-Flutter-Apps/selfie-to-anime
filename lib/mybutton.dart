@@ -38,10 +38,13 @@ class MyElevatedButton extends StatelessWidget {
       decoration: BoxDecoration(
         gradient: opac ? gradientopec : gradient,
         borderRadius: borderRadius,
+        backgroundBlendMode: BlendMode.colorDodge    
+        
       ),
       child: ElevatedButton(
         onPressed: onPressed,
         style: ElevatedButton.styleFrom(
+          elevation:0.1,
           primary: Colors.transparent,
           shadowColor: Colors.transparent,
           shape: RoundedRectangleBorder(borderRadius: borderRadius),
