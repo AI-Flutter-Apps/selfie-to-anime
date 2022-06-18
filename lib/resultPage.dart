@@ -11,11 +11,11 @@ import 'package:selfie2anime/mybutton.dart';
 
 class ResultPage extends StatefulWidget {
   // captured/uploaded image and bar color
-  final XFile? image;
+  final XFile? animeImage;
   final Color? barColor;
 
   // constructor
-  const ResultPage({Key? key, this.image, this.barColor}) : super(key: key);
+  const ResultPage({Key? key, this.animeImage, this.barColor}) : super(key: key);
 
   @override
   State<ResultPage> createState() => _ResultPage();
@@ -60,12 +60,15 @@ class _ResultPage extends State<ResultPage> {
           ])
         ],
         children: [
-          Container(
-            alignment: Alignment.center, // This is needed
-            child: Image.file(
-              File(widget.image!.path),
+          Container( 
+            alignment: Alignment.center,
+            child:Transform.scale(
+              scale: 2.5,
+              child: Image.file(
+              File(widget.animeImage!.path),
               fit: BoxFit.cover,
-            ))
+            )))
+
         ],
       ),
     );

@@ -2,6 +2,7 @@ import 'dart:io';
 import 'dart:ui';
 import 'package:image_picker/image_picker.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 // custom components
 import 'package:selfie2anime/bottombar.dart';
@@ -24,6 +25,9 @@ class ConfirmPage extends StatefulWidget {
 
 /// ConfirmPage displays the captured/uploaded image for confirmation
 class _ConfirmPage extends State<ConfirmPage> {
+
+  final platform = const MethodChannel("selfie.anime");
+
   // capture icon
   final Icon outercircle = const Icon(
     Icons.circle,
@@ -121,7 +125,7 @@ class _ConfirmPage extends State<ConfirmPage> {
     });
 
     // AI will do its work here
-    await Future.delayed(const Duration(seconds: 3));
+    var resultValue = await platform.invokeMethod("anime", widget.image!.path);
 
     setState(() {
       _isLoading = false;
@@ -133,7 +137,7 @@ class _ConfirmPage extends State<ConfirmPage> {
         context,
         MaterialPageRoute(
             builder: (context) =>
-                ResultPage(image: widget.image, barColor: widget.barColor)),
+                ResultPage(animeImage: XFile(resultValue), barColor: widget.barColor)),
       );
     }
   }
