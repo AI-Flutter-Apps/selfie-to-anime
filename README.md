@@ -8,7 +8,5 @@ This application allows you to capture a picture of yourself or upload an existi
 > * This is my first ever flutter application, which currently only supports Android 😁. This project will be going through future improvements (more fun ideas for the AI model is coming).
 > * This is the notebook I used to train the model  <a href="https://www.kaggle.com/code/ninamaamary/selfie2anime-cyclegan-pytorch"> ![Kaggle](https://img.shields.io/badge/Kaggle-20BEFF?style=for-the-badge&logo=Kaggle&logoColor=white)</a>
 
-## Results
-
-## UI
-![ui-sample](https://user-images.githubusercontent.com/57009004/173684809-1476eb50-9930-4c58-8163-d6cbf6eda143.png)
+## Sample
+![ui-sample](https://user-images.githubusercontent.com/57009004/174449117-4eb36661-668d-40e7-bdd1-aba9ffa68865.png)
